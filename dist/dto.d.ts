@@ -1,8 +1,8 @@
-export declare class CreateCatDto {
+export declare class CreateContactDto {
     name: string;
     number: number;
 }
-export declare class UpdateCatDto {
+export declare class UpdateContactDto {
     name: string;
     number: number;
 }

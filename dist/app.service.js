@@ -17,4 +17,9 @@ AppService = __decorate([
     (0, common_1.Injectable)()
 ], AppService);
 exports.AppService = AppService;
+const contacts = [{
+        id: 5,
+        name: "Gigi",
+        email: "gigi"
+    }];
 //# sourceMappingURL=app.service.js.map

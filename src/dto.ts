@@ -1,10 +1,10 @@
 
-export class CreateCatDto {
+export class CreateContactDto {
     name: string;
     number: number;
   }
 
-export class UpdateCatDto {
+export class UpdateContactDto {
     name: string;
     number: number;
     }

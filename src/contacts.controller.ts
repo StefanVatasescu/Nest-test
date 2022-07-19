@@ -1,5 +1,5 @@
 import { Controller, Get, Query, Post, Body, Put, Param, Delete } from '@nestjs/common';
-import { CreateCatDto, UpdateCatDto, ListAllEntities } from './dto';
+import { CreateContactDto, UpdateContactDto, ListAllEntities } from './dto';
 
 const contacts = [{
     id : 5,
@@ -7,12 +7,12 @@ const contacts = [{
     email : "gigi"
   }];
 
-@Controller('cats')
-export class CatsController {
+@Controller('contacts')
+export class contactsController {
 
   @Post()
-  create(@Body() createCatDto: CreateCatDto) {
-    return 'This action adds a new cat';
+  create(@Body() createcontactDto: CreateContactDto) {
+    return 'This action adds a new contact';
   }
 
   @Get()
@@ -27,12 +27,12 @@ export class CatsController {
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateCatDto: UpdateCatDto) {
-    return `This action updates a #${id} cat`;
+  update(@Param('id') id: string, @Body() updatecontactDto: UpdateContactDto) {
+    return `This action updates a #${id} contact`;
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return `This action removes a #${id} cat`;
+    return `This action removes a #${id} contact`;
   }
 }

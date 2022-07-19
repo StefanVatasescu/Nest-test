@@ -6,3 +6,9 @@ export class AppService {
     return 'Hello World!';
   }
 }
+
+const contacts = [{
+  id : 5,
+  name : "Gigi",
+  email : "gigi"
+}];

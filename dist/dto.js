@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ListAllEntities = exports.UpdateCatDto = exports.CreateCatDto = void 0;
-class CreateCatDto {
+exports.ListAllEntities = exports.UpdateContactDto = exports.CreateContactDto = void 0;
+class CreateContactDto {
 }
-exports.CreateCatDto = CreateCatDto;
-class UpdateCatDto {
+exports.CreateContactDto = CreateContactDto;
+class UpdateContactDto {
 }
-exports.UpdateCatDto = UpdateCatDto;
+exports.UpdateContactDto = UpdateContactDto;
 class ListAllEntities {
 }
 exports.ListAllEntities = ListAllEntities;

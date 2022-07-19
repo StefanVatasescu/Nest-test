@@ -15,21 +15,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.contactsController = void 0;
 const common_1 = require("@nestjs/common");
 const dto_1 = require("./dto");
-const contacts = [{
-        id: 5,
-        name: "Gigi",
-        email: "gigi"
-    }];
+const contacts_service_1 = require("./contacts.service");
 let contactsController = class contactsController {
+    constructor(contractsService) {
+        this.contractsService = contractsService;
+    }
     create(createcontactDto) {
         return 'This action adds a new contact';
     }
     findAll(query) {
-        console.log(query);
-        return contacts;
+        return this.contractsService.findAll();
     }
     findOne(id) {
-        return contacts[id];
+        return this.contractsService.findOne(id);
     }
     update(id, updatecontactDto) {
         return `This action updates a #${id} contact`;
@@ -56,7 +54,7 @@ __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], contactsController.prototype, "findOne", null);
 __decorate([
@@ -64,18 +62,19 @@ __decorate([
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, dto_1.UpdateContactDto]),
+    __metadata("design:paramtypes", [Number, dto_1.UpdateContactDto]),
     __metadata("design:returntype", void 0)
 ], contactsController.prototype, "update", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], contactsController.prototype, "remove", null);
 contactsController = __decorate([
-    (0, common_1.Controller)('contacts')
+    (0, common_1.Controller)('contacts'),
+    __metadata("design:paramtypes", [contacts_service_1.ContactsService])
 ], contactsController);
 exports.contactsController = contactsController;
 //# sourceMappingURL=contacts.controller.js.map

@@ -1,14 +1,11 @@
 import { Controller, Get, Query, Post, Body, Put, Param, Delete } from '@nestjs/common';
 import { CreateContactDto, UpdateContactDto, ListAllEntities } from './dto';
-
-const contacts = [{
-    id : 5,
-    name : "Gigi",
-    email : "gigi"
-  }];
+import { ContactsService } from './contacts.service';
 
 @Controller('contacts')
 export class contactsController {
+
+  constructor(private readonly contractsService: ContactsService) {}
 
   @Post()
   create(@Body() createcontactDto: CreateContactDto) {
@@ -17,22 +14,21 @@ export class contactsController {
 
   @Get()
   findAll(@Query() query: ListAllEntities) {
-    console.log(query);
-    return contacts;
+    return this.contractsService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return contacts[id];
+  findOne(@Param('id') id: number) {
+    return this.contractsService.findOne(id);
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updatecontactDto: UpdateContactDto) {
+  update(@Param('id') id: number, @Body() updatecontactDto: UpdateContactDto) {
     return `This action updates a #${id} contact`;
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  remove(@Param('id') id: number) {
     return `This action removes a #${id} contact`;
   }
 }

@@ -33,4 +33,4 @@ ContactsService = __decorate([
     __metadata("design:paramtypes", [])
 ], ContactsService);
 exports.ContactsService = ContactsService;
-//# sourceMappingURL=app.service.js.map
+//# sourceMappingURL=contacts.service.js.map

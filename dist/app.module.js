@@ -9,11 +9,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const contacts_controller_1 = require("./contacts.controller");
+const contacts_service_1 = require("./contacts.service");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
         controllers: [contacts_controller_1.contactsController],
+        providers: [contacts_service_1.ContactsService]
     })
 ], AppModule);
 exports.AppModule = AppModule;

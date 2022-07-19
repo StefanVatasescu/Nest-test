@@ -1,5 +1,5 @@
 import { Controller, Get, Query, Post, Body, Put, Param, Delete } from '@nestjs/common';
-import { CreateContactDto, UpdateContactDto, ListAllEntities } from './dto';
+import { CreateContactDto, UpdateContactDto} from './dto';
 import { ContactsService } from './contacts.service';
 
 @Controller('contacts')
@@ -13,7 +13,7 @@ export class contactsController {
   }
 
   @Get()
-  findAll(@Query() query: ListAllEntities) {
+  findAll() {
     return this.contractsService.findAll();
   }
 
@@ -22,13 +22,14 @@ export class contactsController {
     return this.contractsService.findOne(id);
   }
 
-  @Put(':id')
-  update(@Param('id') id: number, @Body() updatecontactDto: UpdateContactDto) {
-    return `This action updates a #${id} contact`;
+  @Put()
+  update( @Body() updatecontactDto: UpdateContactDto) {
+    this.contractsService.push(updatecontactDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: number) {
-    return `This action removes a #${id} contact`;
+  @Delete()
+  remove() {
+    this.contractsService.pop();
   }
+
 }

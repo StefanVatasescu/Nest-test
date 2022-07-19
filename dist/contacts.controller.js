@@ -23,17 +23,17 @@ let contactsController = class contactsController {
     create(createcontactDto) {
         return 'This action adds a new contact';
     }
-    findAll(query) {
+    findAll() {
         return this.contractsService.findAll();
     }
     findOne(id) {
         return this.contractsService.findOne(id);
     }
-    update(id, updatecontactDto) {
-        return `This action updates a #${id} contact`;
+    update(updatecontactDto) {
+        this.contractsService.push(updatecontactDto);
     }
-    remove(id) {
-        return `This action removes a #${id} contact`;
+    remove() {
+        this.contractsService.pop();
     }
 };
 __decorate([
@@ -45,9 +45,8 @@ __decorate([
 ], contactsController.prototype, "create", null);
 __decorate([
     (0, common_1.Get)(),
-    __param(0, (0, common_1.Query)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [dto_1.ListAllEntities]),
+    __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], contactsController.prototype, "findAll", null);
 __decorate([
@@ -58,18 +57,16 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], contactsController.prototype, "findOne", null);
 __decorate([
-    (0, common_1.Put)(':id'),
-    __param(0, (0, common_1.Param)('id')),
-    __param(1, (0, common_1.Body)()),
+    (0, common_1.Put)(),
+    __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number, dto_1.UpdateContactDto]),
+    __metadata("design:paramtypes", [dto_1.UpdateContactDto]),
     __metadata("design:returntype", void 0)
 ], contactsController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.Delete)(),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
+    __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], contactsController.prototype, "remove", null);
 contactsController = __decorate([

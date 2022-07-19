@@ -11,11 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ContactsService = void 0;
 const common_1 = require("@nestjs/common");
-const contactArray = [{
-        "id": 1,
-        "name": "Gigi",
-        "email": "gigi"
-    }];
+const contactArray = [];
 let ContactsService = class ContactsService {
     constructor() { }
     findAll() {
@@ -24,8 +20,11 @@ let ContactsService = class ContactsService {
     findOne(id) {
         return contactArray[id];
     }
-    remove(id) {
-        return contactArray[id];
+    push(insert) {
+        contactArray.push(insert);
+    }
+    pop() {
+        contactArray.pop();
     }
 };
 ContactsService = __decorate([

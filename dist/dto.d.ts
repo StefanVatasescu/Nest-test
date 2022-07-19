@@ -1,13 +1,10 @@
 export declare class CreateContactDto {
+    id: number;
     name: string;
-    number: number;
+    number: string;
 }
 export declare class UpdateContactDto {
+    id: number;
     name: string;
-    number: number;
-}
-export declare class ListAllEntities {
-    name: string;
-    number: number;
-    limit: number;
+    number: string;
 }

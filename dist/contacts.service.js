@@ -20,11 +20,17 @@ let ContactsService = class ContactsService {
     findOne(id) {
         return contactArray[id];
     }
-    push(insert) {
+    post(insert) {
         contactArray.push(insert);
     }
-    pop() {
-        contactArray.pop();
+    patch(id, insert) {
+        const index = contactArray.findIndex(e => e.id === id);
+        contactArray.splice(index, 1);
+        contactArray.push(insert);
+    }
+    delete(id) {
+        const index = contactArray.findIndex(e => e.id === id);
+        contactArray.splice(index, 1);
     }
 };
 ContactsService = __decorate([

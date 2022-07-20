@@ -16,11 +16,20 @@ export class ContactsService {
     return contactArray[id];
   }
 
-  push(insert : any): void {
+  post(insert : any): void {
     contactArray.push(insert);
   }
 
-  pop(): void {
-    contactArray.pop();
+  patch(id : number, insert : any): void {
+    const index = contactArray.findIndex(e => e.id === id)
+      contactArray.splice(index, 1);
+    
+    contactArray.push(insert);
   }
+
+  delete(id: number): void {
+    const index = contactArray.findIndex(e => e.id === id)
+      contactArray.splice(index, 1);
+  } 
 }
+ 

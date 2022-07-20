@@ -1,11 +1,11 @@
-import { CreateContactDto, UpdateContactDto } from './dto';
+import { AddContactDto, UpdateContactDto } from './dto';
 import { ContactsService } from './contacts.service';
 export declare class contactsController {
-    private readonly contractsService;
-    constructor(contractsService: ContactsService);
-    create(createcontactDto: CreateContactDto): string;
+    private readonly contactsService;
+    constructor(contactsService: ContactsService);
     findAll(): Object[];
     findOne(id: number): Object;
-    update(updatecontactDto: UpdateContactDto): void;
-    remove(): void;
+    add(addcontactDto: AddContactDto): void;
+    update(id: number, updatecontactDto: UpdateContactDto): void;
+    remove(id: number): void;
 }

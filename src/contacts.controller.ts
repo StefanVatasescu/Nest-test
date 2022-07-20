@@ -1,35 +1,35 @@
-import { Controller, Get, Query, Post, Body, Put, Param, Delete } from '@nestjs/common';
-import { CreateContactDto, UpdateContactDto} from './dto';
+import { Controller, Get, Query, Post, Body, Put, Patch, Param, Delete } from '@nestjs/common';
+import { CreateContactDto, AddContactDto, UpdateContactDto} from './dto';
 import { ContactsService } from './contacts.service';
 
 @Controller('contacts')
 export class contactsController {
 
-  constructor(private readonly contractsService: ContactsService) {}
-
-  @Post()
-  create(@Body() createcontactDto: CreateContactDto) {
-    return 'This action adds a new contact';
-  }
+  constructor(private readonly contactsService: ContactsService) {}
 
   @Get()
   findAll() {
-    return this.contractsService.findAll();
+    return this.contactsService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: number) {
-    return this.contractsService.findOne(id);
+    return this.contactsService.findOne(id);
   }
 
-  @Put()
-  update( @Body() updatecontactDto: UpdateContactDto) {
-    this.contractsService.push(updatecontactDto);
+  @Post()
+  add( @Body() addcontactDto: AddContactDto) {
+    this.contactsService.post(addcontactDto);
   }
 
-  @Delete()
-  remove() {
-    this.contractsService.pop();
+  @Patch(':id')
+  update( @Param('id') id : number, @Body() updatecontactDto: UpdateContactDto){
+    this.contactsService.patch(id, updatecontactDto);
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id : number) {
+    this.contactsService.delete(id);
   }
 
 }

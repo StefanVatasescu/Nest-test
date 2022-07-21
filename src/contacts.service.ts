@@ -2,34 +2,34 @@ import { Injectable } from '@nestjs/common';
 // import { InjectRepository } from '@nestjs/typeorm';
 // import { Repository } from 'typeorm';
 
-const contactArray = []
-
 @Injectable()
 export class ContactsService {
   constructor() {}
 
+  private contactArray = []
+
   findAll(): Object[] {
-    return contactArray;
+    return this.contactArray;
   }
 
   findOne(id: number): Object {
-    return contactArray[id];
+    return this.contactArray[id];
   }
 
   post(insert : any): void {
-    contactArray.push(insert);
+    this.contactArray.push(insert);
   }
 
   patch(id : number, insert : any): void {
-    const index = contactArray.findIndex(e => e.id === id)
-      contactArray.splice(index, 1);
+    const index = this.contactArray.findIndex(e => e.id === id)
+      this.contactArray.splice(index, 1);
     
-    contactArray.push(insert);
+    this.contactArray.push(insert);
   }
 
   delete(id: number): void {
-    const index = contactArray.findIndex(e => e.id === id)
-      contactArray.splice(index, 1);
+    const index = this.contactArray.findIndex(e => e.id === id)
+      this.contactArray.splice(index, 1);
   } 
 }
  

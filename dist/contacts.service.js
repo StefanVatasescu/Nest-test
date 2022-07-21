@@ -11,26 +11,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ContactsService = void 0;
 const common_1 = require("@nestjs/common");
-const contactArray = [];
 let ContactsService = class ContactsService {
-    constructor() { }
+    constructor() {
+        this.contactArray = [];
+    }
     findAll() {
-        return contactArray;
+        return this.contactArray;
     }
     findOne(id) {
-        return contactArray[id];
+        return this.contactArray[id];
     }
     post(insert) {
-        contactArray.push(insert);
+        this.contactArray.push(insert);
     }
     patch(id, insert) {
-        const index = contactArray.findIndex(e => e.id === id);
-        contactArray.splice(index, 1);
-        contactArray.push(insert);
+        const index = this.contactArray.findIndex(e => e.id === id);
+        this.contactArray.splice(index, 1);
+        this.contactArray.push(insert);
     }
     delete(id) {
-        const index = contactArray.findIndex(e => e.id === id);
-        contactArray.splice(index, 1);
+        const index = this.contactArray.findIndex(e => e.id === id);
+        this.contactArray.splice(index, 1);
     }
 };
 ContactsService = __decorate([

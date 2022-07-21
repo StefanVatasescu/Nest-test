@@ -1,10 +1,21 @@
 
+
 import { Module } from '@nestjs/common';
-import { contactsController } from './contacts.controller';
-import { ContactsService } from './contacts.service'
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from './users/user.entity';
 
 @Module({
-  controllers: [contactsController],
-  providers: [ContactsService]
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: 'localhost',
+      port: 3306,
+      username: 'root',
+      password: 'root',
+      database: 'test',
+      entities: [User],
+      synchronize: true,
+    }),
+  ],
 })
 export class AppModule {}
